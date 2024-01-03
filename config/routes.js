@@ -7,12 +7,13 @@ const {
   verifyUser,
 } = require("../app/controllers/authControllers");
 const handleGetRoot = require("../app/controllers/root");
-// const {
-//   getAllTickets,
-//   createTicket,
-//   getTicketById,
-//   updateTicketData,
-// } = require("../app/controllers/ticketController");
+
+const {
+  getAllProductData,
+  createproduct,
+  getProductById,
+  updateProductData,
+} = require("../app/controllers/productsControllers");
 
 const {
   getAllUserData,
@@ -29,14 +30,14 @@ const {
 //   deleteDestFav,
 // } = require("../app/controllers/destinasifavoriteController");
 
-// const {
-//   createCheckout,
-//   getAllCheckoutData,
-//   getDataCheckoutById,
-//   updateCheckoutData,
-//   deleteCheckout,
-//   deleteAllDataCheckout,
-// } = require("../app/controllers/checkoutController");
+const {
+  createCheckout,
+  getAllCheckoutData,
+  getDataCheckoutById,
+  updateCheckoutData,
+  deleteCheckout,
+  deleteAllDataCheckout,
+} = require("../app/controllers/checkoutControllers");
 
 // const {
 //   createPayment,
@@ -44,14 +45,16 @@ const {
 //   getPaymentById,
 //   deleteAllDataPayment,
 // } = require("../app/controllers/paymentController");
-// const {
-//   createTransaction,
-//   getAllTransactionData,
-//   getDataTransactionById,
-//   updateDataTrans,
-//   deleteDataTrans,
-//   deleteAllDataTrans,
-// } = require("../app/controllers/transactionController");
+
+const {
+  createTransaction,
+  getAllTransactionData,
+  getDataTransactionById,
+  updateDataTrans,
+  deleteDataTrans,
+  deleteAllDataTrans,
+} = require("../app/controllers/transactionControllers");
+
 const {
   forgetPass,
   resetPassView,
@@ -101,17 +104,17 @@ router.post("/api/v1/forget-password", forgetPass);
 // router.get("/api/v1/reset-password/:token", resetPassView);
 router.put("/api/v1/reset-password", resetPass);
 
-// // Get Ticket
-// router.get("/api/v1/tickets", getAllTickets);
+// // Get Product
+router.get("/api/v1/product", getAllProductData);
 
-// // Get Ticket By Id
-// router.get("/api/v1/tickets/:id", getTicketById);
+// // Get Product By Id
+router.get("/api/v1/product/:id", getProductById);
 
-// // Create Ticket
-// router.post("/api/v1/tickets", createTicket);
+// Create Product
+router.post("/api/v1/product", createproduct);
 
-// // Put Ticket By Id
-// // router.put("/api/v1/tickets/:id", updateTicketData);
+// Put Product By Id
+router.put("/api/v1/product/:id", updateProductData);
 
 // // Add Destinasi Favorite
 // router.post("/api/v1/destfavorite", createdesfav);
@@ -125,26 +128,26 @@ router.put("/api/v1/reset-password", resetPass);
 // // Delete Destinasi Favorite
 // router.delete("/api/v1/destfavorite/:id", deleteDestFav);
 
-// // Post Checkout
-// router.post("/api/v1/checkout", authorize, createCheckout);
+// Post Checkout
+router.post("/api/v1/checkout", authorize, createCheckout);
 
-// // get All checkout
-// router.get("/api/v1/checkout", authorize, getAllCheckoutData);
+// get All checkout
+router.get("/api/v1/checkout", authorize, getAllCheckoutData);
 
-// // Get Data Checkout By Id
-// router.get("/api/v1/checkout/:id", getDataCheckoutById);
+// Get Data Checkout By Id
+router.get("/api/v1/checkout/:id", getDataCheckoutById);
 
-// // Update Data Checkout
-// router.put("/api/v1/checkout/:id", updateCheckoutData);
+// Update Data Checkout
+router.put("/api/v1/checkout/:id", updateCheckoutData);
 
-// // Delete Data Checkout
-// router.delete("/api/v1/checkout/:id", deleteCheckout);
+// Delete Data Checkout
+router.delete("/api/v1/checkout/:id", deleteCheckout);
 
-// // Get All Data Transaction
-// router.get("/api/v1/transaction", authorize, getAllTransactionData);
+// Get All Data Transaction
+router.get("/api/v1/transaction", authorize, getAllTransactionData);
 
-// // Delete All Data Transaction
-// router.delete("/api/v1/checkout", deleteAllDataCheckout);
+// Delete All Data Transaction
+router.delete("/api/v1/checkout", deleteAllDataCheckout);
 
 // // Get Notifikasi By Token
 // router.get("/api/v1/notif", authorize, getNotif);
@@ -171,13 +174,13 @@ router.put("/api/v1/reset-password", resetPass);
 // // router.get("/api/v1/transaction/:id", getDataTransactionById);
 // router.get("/api/v1/transaction", authorize, getDataTransactionById);
 
-// // Put Data Transaction
-// router.put("/api/v1/transaction/:id", updateDataTrans);
+// Put Data Transaction
+router.put("/api/v1/transaction/:id", updateDataTrans);
 
-// // Delete Data Transaction
-// router.delete("/api/v1/transaction/:id", deleteDataTrans);
+// Delete Data Transaction
+router.delete("/api/v1/transaction/:id", deleteDataTrans);
 
-// // Delete All Data Transaction
-// router.delete("/api/v1/transaction", deleteAllDataTrans);
+// Delete All Data Transaction
+router.delete("/api/v1/transaction", deleteAllDataTrans);
 
 module.exports = router;

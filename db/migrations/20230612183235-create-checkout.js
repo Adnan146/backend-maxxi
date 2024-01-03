@@ -2,32 +2,33 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Transactions", {
+    await queryInterface.createTable("Checkouts", {
       id: {
         defaultValue: Sequelize.UUIDV4,
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
+        unique: true,
       },
       usersId: {
+        type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
-        type: Sequelize.UUID,
+        allowNull: false,
       },
-      productsId: {
+      productId: {
+        type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
-        type: Sequelize.UUID,
+        allowNull: true,
+        primaryKey: true,
       },
-      checkoutsId: {
-        type: Sequelize.UUID,
-      },
-      amounts: {
+      total_barang: {
         type: Sequelize.INTEGER,
       },
-      status: {
-        type: Sequelize.STRING,
+      hargaOngkir: {
+        type: Sequelize.INTEGER,
       },
-      date: {
-        type: Sequelize.DATEONLY,
+      total_price: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -40,6 +41,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Transactions");
+    await queryInterface.dropTable("Checkouts");
   },
 };
